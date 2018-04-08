@@ -3,19 +3,15 @@ import React, { Component } from 'react';
 
 class ContactList extends React.Component {
   render() {
-    const people = [
-      { name: 'Tyler' },
-      { name: 'Karen' },
-      { name: 'Richard' }
-    ]
+    const people = this.props.contacts
 
-  return (
-  <ol>
-    {people.map((person) => (
-      <li key={person.name}>{person.name}</li>
-    ))}
-  </ol>
-  )
+    return (
+    <ol>
+      {people.map((person) => (
+        <li key={person.name}>{person.name}</li>
+      ))}
+    </ol>
+    )
   }
 }
 
@@ -24,7 +20,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ContactList />
+        <ContactList contacts={[
+          { name: 'Paul'},
+          { name: 'Tim'},
+          { name: 'Danny'}
+        ]} />
+        <ContactList contacts={[
+          { name: 'Aaron' },
+          { name: 'Steve' },
+          { name: 'Trey' }
+        ]} />
       </div>
     );
   }
